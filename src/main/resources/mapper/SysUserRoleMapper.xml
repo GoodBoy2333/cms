@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fy.cms.Mapper.SysUserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.fy.cms.Entity.SysUserRole">
+    <!--@mbg.generated-->
+    <id column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <id column="ROLE_ID" jdbcType="DECIMAL" property="roleId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from SYS_USER_ROLE
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+      and ROLE_ID = #{roleId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.fy.cms.Entity.SysUserRole">
+    <!--@mbg.generated-->
+    insert into SYS_USER_ROLE (USER_ID, ROLE_ID)
+    values (#{userId,jdbcType=DECIMAL}, #{roleId,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fy.cms.Entity.SysUserRole">
+    <!--@mbg.generated-->
+    insert into SYS_USER_ROLE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="roleId != null">
+        ROLE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>
